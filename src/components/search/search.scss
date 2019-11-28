@@ -1,0 +1,53 @@
+@import "../../constants/enum.scss";
+.search {
+  &__block {
+  }
+  &__form {
+    &-input {
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+      border-bottom: 1px solid $searchBorder;
+      padding: 6px;
+      min-width: 320px;
+      &::placeholder {
+        font-size: 16px;
+        line-height: 19px;
+        color: #828282;
+      }
+      &:focus {
+        outline: none;
+      }
+      &:-webkit-autofill {
+        background-color: none;
+      }
+      @media (max-width: 768px) {
+        margin: 16px 0px;
+      }
+    }
+    &-error {
+      position: absolute;
+      font-size: 11px;
+      color: $searchSubmitColor;
+      width: 320px;
+      text-align: center;
+    }
+    &-submit {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: $searchSubmitColor;
+      border: none;
+      background: none;
+      cursor: pointer;
+      margin: 0 32px;
+      @media (max-width: 768px) {
+        margin: 16px 0px;
+        padding: 0px;
+      }
+      &:disabled {
+        cursor: default;
+      }
+    }
+  }
+}

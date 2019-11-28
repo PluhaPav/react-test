@@ -1,0 +1,37 @@
+@import "../../constants/enum.scss";
+.footer {
+  background: $backgroundFooter;
+  display: flex;
+  justify-content: center;
+  padding: 28px 0px;
+  width: 100%;
+  margin-top: 72px;
+  &__container {
+    display: flex;
+    &-logo {
+      &-img {
+        width: 32px;
+        height: 64px;
+      }
+    }
+    &-adress {
+      display: flex;
+      padding: 0px 40px;
+      flex-direction: column;
+    }
+    &-link {
+      font-weight: 700;
+      color: $footerLinkColor;
+    }
+    &-line {
+      font-size: 16px;
+      line-height: 19px;
+      color: $footerLineColor;
+      padding-bottom: 6px;
+      a {
+        color: $footerLineColor;
+        text-decoration: none;
+      }
+    }
+  }
+}
