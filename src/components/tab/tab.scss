@@ -1,7 +1,8 @@
 @import "../../constants/enum.scss";
 @mixin size {
-  max-width: 280px;
-  max-height: 370px;
+  width: 280px;
+  height: 370px;
+  display: block;
 }
 @mixin size-static {
   width: 280px;
@@ -20,7 +21,7 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   min-height: 280px;
-  height: auto;
+  // height: auto;
   background: $tabFronBack;
 }
 .tab {

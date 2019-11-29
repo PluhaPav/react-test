@@ -20,11 +20,11 @@ const commonConfig = getConfig({
     folder: ASSETS_PATH
 });
 
-const config = webpackMerge.smart(commonConfig, {
+const config = webpackMerge(commonConfig, {
     module: {
         rules: [
             {
-                test: /\.p?css$/,
+                test: /\.scss$/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -39,13 +39,17 @@ const config = webpackMerge.smart(commonConfig, {
                         }
                     },
                     {
-                        loader: "postcss-loader",
-                        options: {
-                            config: {
-                                path: helpers.root("config")
-                            }
-                        }
+                        loader: "sass-loader"
                     }
+                    // ,
+                    // {
+                    //     loader: "postcss-loader",
+                    //     options: {
+                    //         config: {
+                    //             path: helpers.root("config")
+                    //         }
+                    //     }
+                    // }
                 ]
             },
             {
@@ -54,25 +58,26 @@ const config = webpackMerge.smart(commonConfig, {
                     {
                         loader: "file-loader",
                         options: { name: ASSETS_PATH + "[name].[ext]" }
-                    },
-                    {
-                        loader: "image-webpack-loader",
-                        options: {
-                            mozjpeg: {
-                                progressive: true
-                            },
-                            gifsicle: {
-                                interlaced: false
-                            },
-                            optipng: {
-                                optimizationLevel: 7
-                            },
-                            pngquant: {
-                                quality: "65-90",
-                                speed: 4
-                            }
-                        }
                     }
+                    // ,
+                    // {
+                    //     loader: "image-webpack-loader",
+                    //     options: {
+                    //         mozjpeg: {
+                    //             progressive: true
+                    //         },
+                    //         gifsicle: {
+                    //             interlaced: false
+                    //         },
+                    //         optipng: {
+                    //             optimizationLevel: 7
+                    //         },
+                    //         pngquant: {
+                    //             quality: "65-90",
+                    //             speed: 4
+                    //         }
+                    //     }
+                    // }
                 ]
             },
             {

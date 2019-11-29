@@ -5,6 +5,7 @@ import PageMain from "../page-main/page-main";
 import PageError from "../page-error/page-error";
 import { MAIN_PAGE_ROUTE } from "../../constants/routes";
 import Footer from "../footer/footer";
+import LoginPopup from "../login-popup/login-popup";
 import "./app.scss";
 
 export default class App extends React.Component {
@@ -17,6 +18,7 @@ export default class App extends React.Component {
                 </Switch>
 
                 <Footer />
+                <LoginPopup />
             </div>
         );
     }

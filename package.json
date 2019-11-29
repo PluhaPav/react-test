@@ -84,13 +84,14 @@
     "html-webpack-plugin": "^3.2.0",
     "husky": "^0.14.3",
     "identity-obj-proxy": "^3.0.0",
-    "image-webpack-loader": "^4.3.1",
+    "image-webpack-loader": "^5.1.0",
     "jest": "^23.6.0",
     "lint-staged": "^4.3.0",
     "mini-css-extract-plugin": "^0.4.2",
     "node-noop": "^1.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "path": "^0.12.7",
+    "pngquant": "^3.0.0",
     "postcss-calc": "^6.0.2",
     "postcss-custom-media": "^7.0.4",
     "postcss-custom-properties": "^8.0.6",
@@ -101,7 +102,6 @@
     "postcss-url": "^8.0.0",
     "prettier": "^1.10.1",
     "prettier-eslint": "^6.3.0",
-    "prop-types": "^15.6.2",
     "react-hot-loader": "^4.3.11",
     "regenerator-runtime": "^0.13.1",
     "rimraf": "^2.5.4",
@@ -119,7 +119,9 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
+    "babel-polyfill": "^6.26.0",
     "bem-cn": "^2.1.3",
+    "core-js": "^2.6.10",
     "lodash": "^4.17.3",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
@@ -129,7 +131,8 @@
     "redux-thunk": "^2.1.0",
     "resolve-url": "^0.2.1",
     "superagent": "^3.3.1",
-    "superagent-promise-plugin": "^3.2.0"
+    "superagent-promise-plugin": "^3.2.0",
+    "prop-types": "^15.6.2"
   },
   "engines": {
     "node": ">= 6.9.2",
