@@ -30,6 +30,16 @@
     "import/prefer-default-export": 0,
     "linebreak-style": 0,
     "react/forbid-prop-types": [2, { "forbid": ["object"] }],
+    "jsx-a11y/label-has-for":[ 2, {
+        "required": {
+            "every": [ "id" ]
+        }
+    }],
+    "jsx-a11y/label-has-associated-control":[ 2, {
+        "required": {
+            "every": [ "id" ]
+        }
+    }],
     "indent": ["error", 4, { "SwitchCase": 1 }],
     "prefer-const": 0,
     "comma-dangle": ["error", "never"],
