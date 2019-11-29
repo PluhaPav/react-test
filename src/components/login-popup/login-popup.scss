@@ -1,0 +1,169 @@
+@import "../../constants/enum.scss";
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: $popupBackground;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  &__container {
+    background: #ffffff;
+    border-radius: 8px;
+    width: 304px;
+    height: 394px;
+    padding: 36px;
+  }
+  &__form {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative;
+    &-title {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 33px;
+      text-align: center;
+      color: $popupBorder;
+      margin-bottom: 24px;
+    }
+    &-row {
+      margin-bottom: 24px;
+    }
+    &-input {
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+      border-bottom: 1px solid $popupBorder;
+      padding: 6px;
+      width: 100%;
+      &::-webkit-input-placeholder {
+        font-size: 16px;
+        line-height: 19px;
+        color: $popupInputPplaceholder;
+      }
+      &:-ms-input-placeholder {
+        font-size: 16px;
+        line-height: 19px;
+        color: $popupInputPplaceholder;
+      }
+      &::-ms-input-placeholder {
+        font-size: 16px;
+        line-height: 19px;
+        color: $popupInputPplaceholder;
+      }
+      &::placeholder {
+        font-size: 16px;
+        line-height: 19px;
+        color: $popupInputPplaceholder;
+      }
+      &:focus {
+        outline: none;
+      }
+      &:-webkit-autofill {
+        background-color: none;
+      }
+      @media (max-width: 768px) {
+        margin: 16px 0px;
+      }
+    }
+    &-error {
+      position: absolute;
+      font-size: 11px;
+      color: #e5261e;
+    }
+    &-checkbox {
+      &:checked {
+        position: absolute;
+        left: -9999px;
+        & + label {
+          display: inline-block;
+          position: relative;
+          padding-left: 28px;
+          line-height: 20px;
+          cursor: pointer;
+          &::after {
+            content: "";
+            position: absolute;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+            left: 3px;
+            top: 5px;
+            width: 10px;
+            height: 5px;
+            border-radius: 4px;
+            border-left: 2px solid $popupchecked;
+            border-bottom: 2px solid $popupchecked;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 16px;
+            height: 16px;
+            border: 1px solid $popupBorder;
+            background-color: #ffffff;
+            border-radius: 4px;
+          }
+        }
+      }
+      &:not(:checked) {
+        position: absolute;
+        left: -9999px;
+        & + label {
+          display: inline-block;
+          position: relative;
+          padding-left: 28px;
+          line-height: 20px;
+          cursor: pointer;
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 16px;
+            height: 16px;
+            border: 1px solid $popupBorder;
+            background-color: #ffffff;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+    &-submit {
+      background: $popupchecked;
+      border-radius: 4px;
+      border: none;
+      padding: 9px 32px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      text-align: center;
+      color: #ffffff;
+      position: absolute;
+      bottom: 0;
+      cursor: pointer;
+    }
+    &-center {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
