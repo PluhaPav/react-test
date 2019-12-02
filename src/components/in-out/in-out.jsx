@@ -27,6 +27,7 @@ export default class InOut extends React.Component {
         );
     }
 }
+
 InOut.propTypes = {
     authorization: PropTypes.bool
 };
