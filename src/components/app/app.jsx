@@ -30,7 +30,11 @@ export default class App extends React.Component {
     handleLogin(event) {
         let auth = false;
         let popupVis = true;
-        if (event.inputEmail.value === "test@mail.ru" && event.inputPassword.value === "1234") {
+        const {
+            inputEmail: { value: eMalue },
+            inputPassword: { value: pValue }
+        } = event;
+        if (eMalue === "test@mail.ru" && pValue === "1234") {
             auth = true;
             popupVis = false;
         } else {
