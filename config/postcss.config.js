@@ -8,6 +8,6 @@ module.exports = {
         'postcss-custom-properties': {},
         'postcss-nested': {},
         'postcss-url': { url: 'rebase' },
-        autoprefixer: {url: '../.browserslistrc'} // use ../.browserslistrc
+        autoprefixer: {} // use ../.browserslistrc
     }
 };

@@ -39,6 +39,10 @@ export default class LoginPopup extends React.Component {
         this.setState({ inputPassword: { error: !(passsword.length > 8), value: passsword } });
     }
 
+    handleCheck(event){
+        console.log(event);
+    }
+
     render() {
         const {
             inputEmail: { error, value },

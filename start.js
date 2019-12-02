@@ -2,6 +2,7 @@
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const webpackConfig = require('./webpack.config.js');
+const ENV = require('./node_envs.js');
 
 const frontendServerPort = 8080;
 const frontendServerHost = 'localhost';
@@ -25,7 +26,7 @@ const devServerConfig = {
     stats: { colors: true }
 };
 
-if (process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === ENV.DEV) {
     webpackConfig.entry.app.unshift('webpack/hot/only-dev-server');
     webpackConfig.entry.app.unshift('react-hot-loader/patch');
     webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
@@ -39,5 +40,6 @@ const frontendCompiler = webpack(webpackConfig);
 const frontendServer = new WebpackDevServer(frontendCompiler, devServerConfig);
 
 frontendServer.listen(frontendServerPort, frontendServerHost, () => {
+    // eslint-disable-next-line no-console
     console.log(`Frontend server running at ${frontendServerHost}:${frontendServerPort}...`);
 });

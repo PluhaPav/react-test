@@ -1,22 +1,32 @@
+const path = require("path");
 /* eslint import/no-extraneous-dependencies: 0, global-require: 0 */
-const path = require('path');
-const webpackMerge = require('webpack-merge');
+const { getLoaders } = require("./loaders");
+const { getPlugins } = require("./plugins");
+const helpers = require("./helpers");
+const ENV = require("../node_envs.js");
 
-const ENV = 'development';
+const ASSETS_PATH = "";
 
-const commonConfig = require('./webpack.common.js')({ env: ENV });
-// uncomment if you want to see configs merge result
-// const helpers = require('./helpers');
-
-const config = webpackMerge.smart(commonConfig, {
-    devtool: 'cheap-module-source-map',
+const config = {
+    mode: ENV.DEV,
+    entry: {
+        app: ["@babel/polyfill", helpers.root("src", "index.jsx")]
+    },
+    devtool: "cheap-module-source-map",
     output: {
-        devtoolModuleFilenameTemplate: info =>
-            path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')
-    }
-});
-
-// uncomment if you want to see configs merge result
-// helpers.writeJSON(config);
+        path: helpers.root("build"),
+        publicPath: "/",
+        filename: `${ASSETS_PATH}[name].js`,
+        devtoolModuleFilenameTemplate: info => path.resolve(info.absoluteResourcePath).replace(/\\/g, "/")
+    },
+    resolve: {
+        extensions: [".js", ".jsx", ".json"],
+        modules: [helpers.root("src"), helpers.root("node_modules")]
+    },
+    module: {
+        rules: getLoaders(ENV.DEV, ASSETS_PATH)
+    },
+    plugins: getPlugins(ENV.DEV)
+};
 
 module.exports = config;
