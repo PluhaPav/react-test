@@ -11,20 +11,47 @@ import "./app.scss";
 export default class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { authorization: false };
+        this.state = { popup: false, authorization: false };
+        this.handleInOut = this.handleInOut.bind(this);
+        this.clickoutPopup = this.clickoutPopup.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
+    }
+
+    handleInOut(event) {
+        this.setState({ popup: event });
+    }
+
+    clickoutPopup(event) {
+        if (event.target.closest(".popup__container") === null) {
+            this.setState({ popup: false });
+        }
+    }
+
+    handleLogin(event) {
+        let auth = false;
+        let popupVis = true;
+        if (event.inputEmail.value === "test@mail.ru" && event.inputPassword.value === "1234") {
+            auth = true;
+            popupVis = false;
+        } else {
+            auth = false;
+            popupVis = true;
+        }
+
+        this.setState({ popup: popupVis, authorization: auth });
     }
 
     render() {
-        const { authorization } = this.state;
+        const { authorization, popup } = this.state;
         return (
-            <div className='app'>
+            <div className='app' onMouseUp={ this.clickoutPopup } role='button' tabIndex='0'>
                 <Switch>
-                    <Route exact={ true } path={ MAIN_PAGE_ROUTE } render={ () => <PageMain authorization={ authorization } /> } />
+                    <Route exact={ true } path={ MAIN_PAGE_ROUTE } render={ () => <PageMain onCkickInOut={ this.handleInOut } authorization={ authorization } /> } />
                     <Route path='*' component={ PageError } />
                 </Switch>
 
                 <Footer />
-                {authorization && <LoginPopup />}
+                {popup && <LoginPopup authorization={ authorization } onClickSubmit={ this.handleLogin } />}
             </div>
         );
     }

@@ -5,16 +5,23 @@ import PropTypes from "prop-types";
 export default class InOut extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { authorization: props.authorization };
+        this.onClickLogin = this.onClickLogin.bind(this);
+    }
+
+    onClickLogin() {
+        const { onCkickInOut } = this.props;
+        onCkickInOut(true);
     }
 
     render() {
-        const { authorization } = this.state;
+        const { authorization } = this.props;
         return (
             <div className='in-out'>
                 {!authorization && (
                     <div className='in-out__login'>
-                        <div className='in-out__login-button'>Войти</div>
+                        <div onClick={ this.onClickLogin } onKeyPress={ this.onClickLogin } className='in-out__login-button' role='button' tabIndex='0'>
+                            Войти
+                        </div>
                     </div>
                 )}
                 {authorization && (
@@ -29,5 +36,6 @@ export default class InOut extends React.Component {
 }
 
 InOut.propTypes = {
-    authorization: PropTypes.bool
+    authorization: PropTypes.bool,
+    onCkickInOut: PropTypes.func
 };

@@ -2,6 +2,14 @@ import image from "../image/poster/image.png";
 import picture from "../image/poster/picture.png";
 import picture1 from "../image/poster/picture (1).png";
 import picture2 from "../image/poster/picture (2).png";
+import comedy from "../image/genres/comedy.png";
+import dram from "../image/genres/dram.png";
+import fantasy from "../image/genres/fantasy.png";
+import horor from "../image/genres/horor.png";
+import Vector from "../image/tv/Vector (3).png";
+import x2 from "../image/tv/2x2.png";
+import Fill from "../image/tv/Fill 2 1.png";
+import Vector4 from "../image/tv/Vector (4).png";
 
 export const list = [
     {
@@ -38,19 +46,19 @@ export const list = [
                 list: [
                     {
                         title: "Комедии",
-                        poster: "../../assets/image/genres/comedy.png"
+                        poster: comedy
                     },
                     {
                         title: "Драмы",
-                        poster: "../../assets/image/genres/dram.png"
+                        poster: dram
                     },
                     {
                         title: "Фантастика",
-                        poster: "../../assets/image/genres/fantasy.png"
+                        poster: fantasy
                     },
                     {
                         title: "Ужасы",
-                        poster: "../../assets/image/genres/horor.png"
+                        poster: horor
                     }
                 ]
             }
@@ -65,7 +73,7 @@ export const list = [
                 list: [
                     {
                         title: "Первый канал",
-                        poster: "../../assets/image/tv/Vector (3).png",
+                        poster: Vector,
                         program: [
                             {
                                 time: "05:00",
@@ -159,7 +167,7 @@ export const list = [
                     },
                     {
                         title: "2x2",
-                        poster: "../../assets/image/tv/2x2.png",
+                        poster: x2,
                         program: [
                             {
                                 time: "06:00",
@@ -349,7 +357,7 @@ export const list = [
                     },
                     {
                         title: "РБК",
-                        poster: "../../assets/image/tv/Fill 2 1.png",
+                        poster: Fill,
                         program: [
                             {
                                 time: "05:00",
@@ -443,7 +451,7 @@ export const list = [
                     },
                     {
                         title: "AMEDIA PREMIUM",
-                        poster: "../../assets/image/tv/Vector (4).png",
+                        poster: Vector4,
                         program: [
                             {
                                 time: "05:00",

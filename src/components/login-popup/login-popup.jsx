@@ -12,6 +12,8 @@ export default class LoginPopup extends React.Component {
         super(props);
         this.handlerEmail = this.handlerEmail.bind(this);
         this.handlerPassword = this.handlerPassword.bind(this);
+        this.handleCheck = this.handleCheck.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
         this.state = {
             inputEmail: {
@@ -25,7 +27,8 @@ export default class LoginPopup extends React.Component {
             inputCheck: {
                 error: false,
                 value: false
-            }
+            },
+            onClickSubmit: props.onClickSubmit
         };
     }
 
@@ -36,27 +39,34 @@ export default class LoginPopup extends React.Component {
 
     handlerPassword(event) {
         const passsword = String(event);
-        this.setState({ inputPassword: { error: !(passsword.length > 8), value: passsword } });
+        this.setState({ inputPassword: { error: !(passsword.length > 3), value: passsword } });
     }
 
-    handleCheck(event){
-        console.log(event);
+    handleCheck(event) {
+        this.setState({ inputCheck: { error: false, value: event } });
+    }
+
+    handleSubmit(event) {
+        const { onClickSubmit } = this.state;
+        event.preventDefault();
+        onClickSubmit(this.state);
     }
 
     render() {
         const {
             inputEmail: { error, value },
-            inputPassword: { error: passError, value: passValue }
+            inputPassword: { error: passError, value: passValue },
+            inputCheck: { error: checkError, value: checkValue }
         } = this.state;
 
         return (
             <div className='popup'>
                 <div className='popup__container'>
-                    <form method='POST' className='popup__form'>
+                    <form method='POST' className='popup__form' onSubmit={ this.handleSubmit }>
                         <div className='popup__form-title'>Вход</div>
                         <InputEmail onEmailChange={ this.handlerEmail } inputObj={ { error, value } } />
                         <InputPassword onPasswordChange={ this.handlerPassword } inputObj={ { passError, passValue } } />
-                        <InputCheck />
+                        <InputCheck onChekedChange={ this.handleCheck } inputObj={ { checkError, checkValue } } />
                         <InputSubmit />
                     </form>
                 </div>
@@ -64,7 +74,7 @@ export default class LoginPopup extends React.Component {
         );
     }
 }
-LoginPopup.StateType = {
+LoginPopup.stateType = {
     inputEmail: StateType.objectOf({
         error: StateType.bool,
         value: StateType.string
@@ -76,5 +86,9 @@ LoginPopup.StateType = {
     inputCheck: StateType.objectOf({
         error: StateType.bool,
         value: StateType.bool
-    })
+    }),
+    onClickSubmit: StateType.func
+};
+LoginPopup.propTypes = {
+    onClickSubmit: StateType.func
 };

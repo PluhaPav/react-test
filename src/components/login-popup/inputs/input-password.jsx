@@ -19,7 +19,7 @@ export default class InputPassword extends React.Component {
         return (
             <div className='popup__form-row'>
                 <input className='popup__form-input' type='password' placeholder='Пароль' value={ passValue } onChange={ this.handleChange } />
-                {passError && <div className='popup__form-error'>Пароль должен быть больше 8 символов</div>}
+                {passError && <div className='popup__form-error'>Пароль должен быть больше 3 символов</div>}
             </div>
         );
     }

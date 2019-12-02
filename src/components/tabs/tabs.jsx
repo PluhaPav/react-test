@@ -11,8 +11,8 @@ export default class Tabs extends React.Component {
 
     render() {
         const { list } = this.state;
-        return list.map((element) => (
-            <div className={ element.class }>
+        return list.map((element, index) => (
+            <div key={ String(element.class + index) } className={ element.class }>
                 <Tab list={ element[element.class] } type={ element.class } />
             </div>
         ));

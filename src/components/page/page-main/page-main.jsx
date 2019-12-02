@@ -7,19 +7,23 @@ import "./page-main.scss";
 export default class PageMain extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { authorization: props.authorization };
+        this.state = {
+            authorization: props.authorization,
+            onCkickInOut: props.onCkickInOut
+        };
     }
 
     render() {
-        const { authorization } = this.state;
+        const { authorization, onCkickInOut } = this.state;
         return (
             <div className='container'>
-                <Header authorization={ authorization } />
+                <Header authorization={ authorization } onCkickInOut={ onCkickInOut } />
                 <Tabs />
             </div>
         );
     }
 }
 PageMain.propTypes = {
-    authorization: PropTypes.bool
+    authorization: PropTypes.bool,
+    onCkickInOut: PropTypes.func
 };
