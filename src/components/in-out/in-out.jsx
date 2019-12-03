@@ -3,15 +3,10 @@ import "./in-out.scss";
 import PropTypes from "prop-types";
 
 export default class InOut extends React.Component {
-    constructor(props) {
-        super(props);
-        this.onClickLogin = this.onClickLogin.bind(this);
-    }
-
-    onClickLogin() {
+    onClickLogin = () => {
         const { onCkickInOut } = this.props;
         onCkickInOut(true);
-    }
+    };
 
     render() {
         const { authorization } = this.props;

@@ -2,15 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default class InputEmail extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(event) {
+    handleChange = event => {
         const { onEmailChange } = this.props;
         onEmailChange(event.target.value);
-    }
+    };
 
     render() {
         const {

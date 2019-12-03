@@ -2,15 +2,10 @@ import React from "react";
 import PropsTypes from "prop-types";
 
 export default class InputPassword extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(event) {
+    handleChange = event => {
         const { onPasswordChange } = this.props;
         onPasswordChange(event.target.value);
-    }
+    };
 
     render() {
         const {

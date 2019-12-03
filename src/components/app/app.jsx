@@ -12,22 +12,19 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = { popup: false, authorization: false };
-        this.handleInOut = this.handleInOut.bind(this);
-        this.clickoutPopup = this.clickoutPopup.bind(this);
-        this.handleLogin = this.handleLogin.bind(this);
     }
 
-    handleInOut(event) {
+    handleInOut = event => {
         this.setState({ popup: event });
-    }
+    };
 
-    clickoutPopup(event) {
+    clickoutPopup = event => {
         if (event.target.closest(".popup__container") === null) {
             this.setState({ popup: false });
         }
-    }
+    };
 
-    handleLogin(event) {
+    handleLogin = event => {
         let auth = false;
         let popupVis = true;
         const {
@@ -43,7 +40,7 @@ export default class App extends React.Component {
         }
 
         this.setState({ popup: popupVis, authorization: auth });
-    }
+    };
 
     render() {
         const { authorization, popup } = this.state;

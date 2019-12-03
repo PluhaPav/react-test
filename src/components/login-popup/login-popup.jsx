@@ -10,10 +10,6 @@ import "./login-popup.scss";
 export default class LoginPopup extends React.Component {
     constructor(props) {
         super(props);
-        this.handlerEmail = this.handlerEmail.bind(this);
-        this.handlerPassword = this.handlerPassword.bind(this);
-        this.handleCheck = this.handleCheck.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
 
         this.state = {
             inputEmail: {
@@ -32,25 +28,25 @@ export default class LoginPopup extends React.Component {
         };
     }
 
-    handlerEmail(event) {
+    handlerEmail = event => {
         const email = String(event);
         this.setState({ inputEmail: { error: !(email.indexOf("@") > 0), value: email } });
-    }
+    };
 
-    handlerPassword(event) {
+    handlerPassword = event => {
         const passsword = String(event);
         this.setState({ inputPassword: { error: !(passsword.length > 3), value: passsword } });
-    }
+    };
 
-    handleCheck(event) {
+    handleCheck = event => {
         this.setState({ inputCheck: { error: false, value: event } });
-    }
+    };
 
-    handleSubmit(event) {
+    handleSubmit = event => {
         const { onClickSubmit } = this.state;
         event.preventDefault();
         onClickSubmit(this.state);
-    }
+    };
 
     render() {
         const {

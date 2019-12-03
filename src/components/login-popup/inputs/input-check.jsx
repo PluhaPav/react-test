@@ -2,17 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default class InputCheck extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { onChekedChange: props.onChekedChange };
-        this.clickChecked = this.clickChecked.bind(this);
-    }
-
-    clickChecked(event) {
+    clickChecked = event => {
         const check = event.target.checked;
-        const { onChekedChange } = this.state;
+        const { onChekedChange } = this.props;
         onChekedChange(check);
-    }
+    };
 
     render() {
         return (
