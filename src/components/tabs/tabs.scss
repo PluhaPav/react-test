@@ -1,45 +1,79 @@
 @import "../../constants/enum.scss";
 .tabs {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: 0px;
-  &__item {
-    position: relative;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 33px;
-    text-align: right;
-    list-style: none;
-    padding: 3px 12px;
-    &::before {
-      content: "";
-      height: 2px;
-      position: absolute;
-      bottom: 0px;
-      left: 0px;
-      width: 0%;
-      background: $tabsItemBackground;
-      -webkit-transition: 0.5s ease-in-out;
-      transition: 0.5s ease-in-out;
-    }
-    &:hover {
-      cursor: pointer;
-      &::before {
-        width: 100%;
-        -webkit-transition: 0.5s ease-in-out;
-        transition: 0.5s ease-in-out;
+  &-title {
+    &__list {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      list-style: none;
+      &-item {
+        padding: 0 24px;
+        min-width: 160px;
+        text-align: center;
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        white-space: nowrap;
+        position: relative;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        margin: 16px 0;
+        height: 28px;
+        cursor: pointer;
+        &::before {
+          content: "";
+          height: 2px;
+          position: absolute;
+          bottom: -16px;
+          left: 0;
+          width: 0%;
+          background: $tabColorActiveLine;
+          -webkit-transition: 0.5s ease-in-out;
+          transition: 0.5s ease-in-out;
+        }
+        &--active {
+          color: $tabColorActiveLine;
+          &::before {
+            width: 100%;
+            -webkit-transition: 0.5s ease-in-out;
+            transition: 0.5s ease-in-out;
+          }
+        }
+        &:hover {
+          &::before {
+            width: 100%;
+            -webkit-transition: 0.5s ease-in-out;
+            transition: 0.5s ease-in-out;
+          }
+        }
       }
     }
-    &.active {
-      color: $tabsActiveColor;
-      &::before {
-        width: 100%;
-        -webkit-transition: 0.5s ease-in-out;
-        transition: 0.5s ease-in-out;
+  }
+  &-main {
+    position: relative;
+    overflow: hidden;
+    &__tab {
+      position: absolute;
+      top: 0;
+      -webkit-transition: 1s;
+      transition: 1s;
+      width: 100%;
+      opacity: 0;
+      visibility: hidden;
+      &--active {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
       }
     }
   }

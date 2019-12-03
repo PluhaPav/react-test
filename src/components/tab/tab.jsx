@@ -20,8 +20,8 @@ function TabList(props) {
     const { type, list } = props;
     return (
         <div className={ "tab-list " + type }>
-            {list.map(element => (
-                <TabListItem key={ `item ${element.id}` } item={ element } />
+            {list.map((element, index) => (
+                <TabListItem key={ index.toString() } item={ element } />
             ))}
         </div>
     );

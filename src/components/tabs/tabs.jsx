@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import React from "react";
 import "./tabs.scss";
 import Tab from "../tab/tab";
@@ -9,12 +10,42 @@ export default class Tabs extends React.Component {
         this.state = { list };
     }
 
+    handleClickTabs = event => {
+        const indexTab = event.target.tabIndex;
+        let tab = null;
+        let tabs = document.querySelectorAll(".tabs-main__tab");
+        let tabTitle = document.querySelectorAll(".tabs-title__list-item");
+
+        tabs.forEach((element, index) => {
+            tabTitle[index].classList.remove("tabs-title__list-item--active");
+            element.classList.remove("tabs-main__tab--active");
+            parseInt(element.attributes.tabIndex.value, 10) === indexTab ? (tab = element) : null;
+        });
+        tabTitle[indexTab].classList.add("tabs-title__list-item--active");
+        tab !== null ? tab.classList.add("tabs-main__tab--active") : undefined;
+    };
+
     render() {
         const { list } = this.state;
-        return list.map((element, index) => (
-            <div key={ String(element.class + index) } className={ element.class }>
-                <Tab list={ element[element.class] } type={ element.class } />
+        return (
+            <div className='tabs'>
+                <div className='tabs-title'>
+                    <ul className='tabs-title__list'>
+                        {list.map((element, index) => (
+                            <li key={ index.toString() } className={ `tabs-title__list-item ${element.class} ${index === 0 ? "tabs-title__list-item--active" : ""}` } tabIndex={ index } role='button' onClick={ this.handleClickTabs } onKeyPress={ this.handleClickTabs }>
+                                {element.title}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div className='tabs-main'>
+                    {list.map((element, index) => (
+                        <div key={ index.toString() } tabIndex={ index } className={ `tabs-main__tab ${element.class} ${index === 0 ? "tabs-main__tab--active" : ""}` }>
+                            <Tab list={ element[element.class] } type={ element.class } />
+                        </div>
+                    ))}
+                </div>
             </div>
-        ));
+        );
     }
 }
