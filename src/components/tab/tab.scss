@@ -171,7 +171,18 @@
           font-weight: 500;
           font-size: 20px;
           line-height: 24px;
-
+          .programm {
+            &-list {
+              display: flex;
+              flex-direction: column;
+              list-style: none;
+              padding: 0 16px;
+              &__item {
+                display: flex;
+                margin-bottom: 12px;
+              }
+            }
+          }
           @media (max-width: 768px) {
             width: 100%;
           }

@@ -45,7 +45,7 @@ export default class App extends React.Component {
     render() {
         const { authorization, popup } = this.state;
         return (
-            <div className='app' onMouseUp={ this.clickoutPopup } role='button' tabIndex='0'>
+            <div className='app' onMouseUp={ this.clickoutPopup } role='menuitem' tabIndex='0'>
                 <Switch>
                     <Route exact={ true } path={ MAIN_PAGE_ROUTE } render={ () => <PageMain onCkickInOut={ this.handleInOut } authorization={ authorization } /> } />
                     <Route path='*' component={ PageError } />

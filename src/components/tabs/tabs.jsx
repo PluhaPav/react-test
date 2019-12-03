@@ -32,7 +32,7 @@ export default class Tabs extends React.Component {
                 <div className='tabs-title'>
                     <ul className='tabs-title__list'>
                         {list.map((element, index) => (
-                            <li key={ index.toString() } className={ `tabs-title__list-item ${element.class} ${index === 0 ? "tabs-title__list-item--active" : ""}` } tabIndex={ index } role='button' onClick={ this.handleClickTabs } onKeyPress={ this.handleClickTabs }>
+                            <li key={ index.toString() } className={ `tabs-title__list-item ${element.class} ${index === 0 ? "tabs-title__list-item--active" : ""}` } tabIndex={ index } role='menuitem' onClick={ this.handleClickTabs } onKeyPress={ this.handleClickTabs }>
                                 {element.title}
                             </li>
                         ))}

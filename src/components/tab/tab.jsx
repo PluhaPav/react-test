@@ -42,7 +42,27 @@ function TabListItem(props) {
                     </div>
                 )}
             </div>
-            <div className={ item.description === undefined ? "tab-list__item-title static" : "tab-list__item-title" }>{item.title}</div>
+            <div className={ `tab-list__item-title ${classItem}` }>
+                {item.title}
+                <Programm prog={ item.program } />
+            </div>
         </div>
+    );
+}
+function Programm(props) {
+    const { prog } = props;
+    return (
+        prog !== undefined && (
+            <div className='program'>
+                <ul className='programm-list'>
+                    {prog.map((element, index) => (
+                        <li className='programm-list__item ' key={ index.toString() }>
+                            <div className='time'>{element.time}</div>
+                            <div className='title'>{element.title}</div>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        )
     );
 }
