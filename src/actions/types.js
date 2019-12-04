@@ -1,3 +1,4 @@
 export const MY_FIRST_ACTION = 'MY_FIRST_ACTION';
 export const POPUP_ACTION = 'STATE_POPUP';
 export const AUTHORIZATION_ACTION = 'STATE_AUTHORIZATION';
+export const API_ACTION = 'STATE_API';

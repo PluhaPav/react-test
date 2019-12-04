@@ -16,7 +16,8 @@
     "suite": true,
     "benchmark": true,
     "document": true,
-    "window": true
+    "window": true ,
+    "fetch":true
   },
   "rules": {
     "react/require-default-props": 0,

@@ -1,13 +1,16 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import React from "react";
 import "./tabs.scss";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import Tab from "../tab/tab";
-import { list } from "../../assets/list/listGenreMovie";
 
-export default class Tabs extends React.Component {
-    constructor() {
-        super();
-        this.state = { list };
+import { actionCreatorApi } from "../../actions/api-action";
+
+class Tabs extends React.Component {
+    componentWillMount() {
+        const { actionCreatorApi } = this.props;
+        actionCreatorApi();
     }
 
     handleClickTabs = event => {
@@ -28,7 +31,7 @@ export default class Tabs extends React.Component {
     };
 
     render() {
-        const { list } = this.state;
+        const { list = [] } = this.props;
         return (
             <div className='tabs'>
                 <div className='tabs-title'>
@@ -51,3 +54,13 @@ export default class Tabs extends React.Component {
         );
     }
 }
+
+Tabs.propTypes = {
+    list: PropTypes.array,
+    actionCreatorApi: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({ list: state.api.list });
+const mapDispatchToProps = { actionCreatorApi };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Tabs);
