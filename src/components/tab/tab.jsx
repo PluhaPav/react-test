@@ -31,14 +31,14 @@ function TabListItem(props) {
     const {
         item: { description, program, poster, title }
     } = props;
-    let classItem = description === undefined ? " static" : "";
-    classItem += program !== undefined ? " line" : "";
+    let classItem = !description ? " static" : "";
+    classItem += program ? " line" : "";
 
     return (
         <div className={ "tab-list__item" + classItem }>
-            <div className={ description === undefined ? "tab-list__item-img static" : "tab-list__item-img" }>
+            <div className={ !description ? "tab-list__item-img static" : "tab-list__item-img" }>
                 <img src={ poster } alt={ title } />
-                {description !== undefined && (
+                {description && (
                     <div className='tab-list__item-description'>
                         <div className='inner'>{description}</div>
                     </div>

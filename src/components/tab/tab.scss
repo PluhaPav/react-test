@@ -9,16 +9,7 @@
   height: 208px;
 }
 @mixin front-back {
-  -webkit-transition: -webkit-transform $tabFronBackTransform;
-  transition: -webkit-transform $tabFronBackTransform;
   transition: transform $tabFronBackTransform;
-  transition: transform $tabFronBackTransform,
-    -webkit-transform $tabFronBackTransform;
-  transition: transform $tabFronBackTransform,
-    -webkit-transform $tabFronBackTransform;
-  transition: transform $tabFronBackTransform,
-    -webkit-transform $tabFronBackTransform;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   min-height: 280px;
   // height: auto;
@@ -36,13 +27,8 @@
     }
   }
   &-list {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     max-height: 680px;
     &.tv {
@@ -63,7 +49,6 @@
       }
     }
     @media (max-width: 768px) {
-      -ms-flex-pack: distribute;
       justify-content: space-around;
       max-height: unset;
     }
@@ -71,17 +56,13 @@
       width: 280px;
       cursor: pointer;
       position: relative;
-      -webkit-transform-style: preserve-3d;
       transform-style: preserve-3d;
-      -webkit-perspective: 1000px;
       perspective: 1000px;
       &.static {
         margin-bottom: 16px;
       }
       &.line {
         width: 100%;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
         margin-bottom: 16px;
         &:nth-last-child(1) {
@@ -100,27 +81,18 @@
           img {
             @include size;
             @include front-back;
-            -o-object-fit: cover;
             object-fit: cover;
             background: $tabImgBackgroundStatis;
             border-radius: 8px;
-            -webkit-transform: rotateY(0deg);
             transform: rotateY(0deg);
-            -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
           }
         }
         &.static {
           opacity: 0.8;
           @include size-static();
-          display: -webkit-box;
-          display: -ms-flexbox;
           display: flex;
-          -webkit-box-pack: center;
-          -ms-flex-pack: center;
           justify-content: center;
-          -webkit-box-align: center;
-          -ms-flex-align: center;
           align-items: center;
           border-radius: 8px;
           img {
@@ -145,11 +117,7 @@
         padding: 16px 0px;
         &.static {
           position: absolute;
-          display: -webkit-box;
-          display: -ms-flexbox;
           display: flex;
-          -webkit-box-pack: center;
-          -ms-flex-pack: center;
           justify-content: center;
           width: 100%;
           bottom: 0;
@@ -159,12 +127,7 @@
         &.line {
           width: 70%;
           position: relative;
-          -webkit-box-pack: left;
-          -ms-flex-pack: left;
           justify-content: left;
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-          -ms-flex-direction: column;
           flex-direction: column;
           color: #333333;
           padding: 19px;
@@ -213,7 +176,6 @@
         @include size;
         @include front-back;
         display: block;
-        -webkit-box-sizing: border-box;
         box-sizing: border-box;
         position: absolute;
         background: $tabFronBack;
@@ -221,21 +183,16 @@
         line-height: 140%;
         color: $tabScrollbar;
         border-radius: 8px;
-        -webkit-transform: rotateY(180deg);
         transform: rotateY(180deg);
-        -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
         .inner {
-          -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
           transform: translateY(-50%) translateZ(60px) scale(0.94);
           top: 50%;
           position: absolute;
           left: 0;
           width: 100%;
-          -webkit-box-sizing: border-box;
           box-sizing: border-box;
           outline: 1px solid transparent;
-          -webkit-perspective: inherit;
           perspective: inherit;
           z-index: 2;
           padding: 16px;
@@ -287,15 +244,11 @@
 .tab-list__item {
   &-img:not(.static):hover {
     img {
-      -webkit-transform: rotateY(-180deg);
       transform: rotateY(-180deg);
-      -webkit-transform-style: preserve-3d;
       transform-style: preserve-3d;
     }
     .tab-list__item-description {
-      -webkit-transform: rotateY(0deg);
       transform: rotateY(0deg);
-      -webkit-transform-style: preserve-3d;
       transform-style: preserve-3d;
     }
   }

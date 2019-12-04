@@ -13,8 +13,8 @@ export default class Tabs extends React.Component {
     handleClickTabs = event => {
         const indexTab = event.target.tabIndex;
         let tab = null;
-        let tabs = document.querySelectorAll(".tabs-main__tab");
-        let tabTitle = document.querySelectorAll(".tabs-title__list-item");
+        const tabs = document.querySelectorAll(".tabs-main__tab");
+        const tabTitle = document.querySelectorAll(".tabs-title__list-item");
 
         tabs.forEach((element, index) => {
             tabTitle[index].classList.remove("tabs-title__list-item--active");
@@ -22,7 +22,9 @@ export default class Tabs extends React.Component {
             parseInt(element.attributes.tabIndex.value, 10) === indexTab ? (tab = element) : null;
         });
         tabTitle[indexTab].classList.add("tabs-title__list-item--active");
-        tab !== null ? tab.classList.add("tabs-main__tab--active") : undefined;
+        if (tab) {
+            tab.classList.add("tabs-main__tab--active");
+        }
     };
 
     render() {

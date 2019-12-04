@@ -7,14 +7,8 @@
   bottom: 0;
   z-index: 1;
   background: $popupBackground;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   &__container {
     background: #ffffff;
@@ -25,12 +19,7 @@
   }
   &__form {
     height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     position: relative;
     &-title {
@@ -99,7 +88,6 @@
           &::after {
             content: "";
             position: absolute;
-            -webkit-transition: all 0.2s ease;
             transition: all 0.2s ease;
             left: 3px;
             top: 5px;
