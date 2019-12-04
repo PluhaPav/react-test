@@ -28,23 +28,25 @@ function TabList(props) {
 }
 
 function TabListItem(props) {
-    const { item } = props;
-    let classItem = item.description === undefined ? " static" : "";
-    classItem += item.program !== undefined ? " line" : "";
+    const {
+        item: { description, program, poster, title }
+    } = props;
+    let classItem = description === undefined ? " static" : "";
+    classItem += program !== undefined ? " line" : "";
 
     return (
         <div className={ "tab-list__item" + classItem }>
-            <div className={ item.description === undefined ? "tab-list__item-img static" : "tab-list__item-img" }>
-                <img src={ item.poster } alt={ item.title } />
-                {item.description !== undefined && (
+            <div className={ description === undefined ? "tab-list__item-img static" : "tab-list__item-img" }>
+                <img src={ poster } alt={ title } />
+                {description !== undefined && (
                     <div className='tab-list__item-description'>
-                        <div className='inner'>{item.description}</div>
+                        <div className='inner'>{description}</div>
                     </div>
                 )}
             </div>
             <div className={ `tab-list__item-title ${classItem}` }>
-                {item.title}
-                <Programm prog={ item.program } />
+                {title}
+                <Programm prog={ program } />
             </div>
         </div>
     );
