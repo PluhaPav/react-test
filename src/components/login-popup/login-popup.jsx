@@ -1,13 +1,15 @@
 /* eslint-disable react/no-unused-state */
 import React from "react";
-import StateType from "prop-types";
+import PropType from "prop-types";
+import { connect } from "react-redux";
 import InputEmail from "./inputs/input-email";
 import InputPassword from "./inputs/input-password";
 import InputCheck from "./inputs/input-check";
 import InputSubmit from "./inputs/input-submit";
+import { actionCreatorPopup } from "../../actions/popup-action";
 import "./login-popup.scss";
 
-export default class LoginPopup extends React.Component {
+class LoginPopup extends React.Component {
     constructor(props) {
         super(props);
 
@@ -48,15 +50,25 @@ export default class LoginPopup extends React.Component {
         onClickSubmit(this.state);
     };
 
+    changePopup = (value = false) => {
+        const { actionCreatorPopup } = this.props;
+        actionCreatorPopup(value);
+    };
+
+    clickoutPopup = event => {
+        if (event.target.closest(".popup__container") === null) {
+            this.changePopup(false);
+        }
+    };
+
     render() {
         const {
             inputEmail: { error, value },
             inputPassword: { error: passError, value: passValue },
             inputCheck: { error: checkError, value: checkValue }
         } = this.state;
-
         return (
-            <div className='popup'>
+            <div className='popup' onClick={ this.clickoutPopup } onKeyPress={ this.clickoutPopup } role='button' tabIndex='0'>
                 <div className='popup__container'>
                     <form method='POST' className='popup__form' onSubmit={ this.handleSubmit }>
                         <div className='popup__form-title'>Вход</div>
@@ -70,21 +82,12 @@ export default class LoginPopup extends React.Component {
         );
     }
 }
-LoginPopup.stateType = {
-    inputEmail: StateType.objectOf({
-        error: StateType.bool,
-        value: StateType.string
-    }),
-    inputPassword: StateType.objectOf({
-        error: StateType.bool,
-        value: StateType.string
-    }),
-    inputCheck: StateType.objectOf({
-        error: StateType.bool,
-        value: StateType.bool
-    }),
-    onClickSubmit: StateType.func
-};
 LoginPopup.propTypes = {
-    onClickSubmit: StateType.func
+    onClickSubmit: PropType.func,
+    actionCreatorPopup: PropType.func.isRequired
 };
+
+const mapStateToProps = state => ({ popup: state.popup.popup });
+const mapDispatchToProps = { actionCreatorPopup };
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPopup);

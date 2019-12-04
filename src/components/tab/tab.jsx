@@ -56,7 +56,7 @@ function Programm(props) {
             <div className='program'>
                 <ul className='programm-list'>
                     {prog.map((element, index) => (
-                        <li className='programm-list__item ' key={ index.toString() }>
+                        <li className='programm-list__item ' key={ `programm${index.toString()}` }>
                             <div className='time'>{element.time}</div>
                             <div className='title'>{element.title}</div>
                         </li>
