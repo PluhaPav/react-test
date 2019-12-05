@@ -1,7 +1,7 @@
 import React from "react";
 import PropsTypes from "prop-types";
 
-export default class InputPassword extends React.Component {
+export default class InputPassword extends React.PureComponent {
     handleChange = event => {
         const { onPasswordChange } = this.props;
         onPasswordChange(event.target.value);

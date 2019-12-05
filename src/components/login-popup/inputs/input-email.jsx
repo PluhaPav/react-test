@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default class InputEmail extends React.Component {
+export default class InputEmail extends React.PureComponent {
     handleChange = event => {
         const { onEmailChange } = this.props;
         onEmailChange(event.target.value);

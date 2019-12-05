@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default class InputCheck extends React.Component {
+export default class InputCheck extends React.PureComponent {
     clickChecked = event => {
         const check = event.target.checked;
         const { onChekedChange } = this.props;
