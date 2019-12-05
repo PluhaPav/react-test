@@ -37,7 +37,7 @@ class Tabs extends React.Component {
                 <div className='tabs-title'>
                     <ul className='tabs-title__list'>
                         {list.map((element, index) => (
-                            <li key={ index.toString() } className={ `tabs-title__list-item ${element.class} ${index === 0 ? "tabs-title__list-item--active" : ""}` } tabIndex={ index } role='menuitem' onClick={ this.handleClickTabs } onKeyPress={ this.handleClickTabs }>
+                            <li key={ `title__list-item${index.toString()}` } className={ `tabs-title__list-item ${element.class} ${index === 0 ? "tabs-title__list-item--active" : ""}` } tabIndex={ index } role='menuitem' onClick={ this.handleClickTabs } onKeyPress={ this.handleClickTabs }>
                                 {element.title}
                             </li>
                         ))}
@@ -45,7 +45,7 @@ class Tabs extends React.Component {
                 </div>
                 <div className='tabs-main'>
                     {list.map((element, index) => (
-                        <div key={ index.toString() } tabIndex={ index } className={ `tabs-main__tab ${element.class} ${index === 0 ? "tabs-main__tab--active" : ""}` }>
+                        <div key={ `main__tab${index.toString()}` } tabIndex={ index } className={ `tabs-main__tab ${element.class} ${index === 0 ? "tabs-main__tab--active" : ""}` }>
                             <Tab list={ element[element.class] } type={ element.class } />
                         </div>
                     ))}

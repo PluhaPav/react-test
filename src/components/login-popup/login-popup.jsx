@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/no-unused-state */
 import React from "react";
 import PropType from "prop-types";
@@ -68,7 +69,7 @@ class LoginPopup extends React.Component {
             inputCheck: { error: checkError, value: checkValue }
         } = this.state;
         return (
-            <div className='popup' onClick={ this.clickoutPopup } onKeyPress={ this.clickoutPopup } role='button' tabIndex='0'>
+            <div className='popup' onClick={ this.clickoutPopup } onKeyPress={ this.clickoutPopup }>
                 <div className='popup__container'>
                     <form method='POST' className='popup__form' onSubmit={ this.handleSubmit }>
                         <div className='popup__form-title'>Вход</div>

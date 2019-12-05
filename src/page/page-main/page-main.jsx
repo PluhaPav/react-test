@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import Header from "../../header/header";
-import Tabs from "../../tabs/tabs";
-import { actionCreatorAuthorization } from "../../../actions/authorization-action";
+import Header from "../../components/header/header";
+import Tabs from "../../components/tabs/tabs";
+import { actionCreatorAuthorization } from "../../actions/authorization-action";
 
 import "./page-main.scss";
 

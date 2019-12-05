@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import "./tab.scss";
+import Programm from "../programm/programm";
 
 export default class Tab extends React.Component {
     render() {
@@ -36,7 +37,7 @@ function TabListItem(props) {
 
     return (
         <div className={ "tab-list__item" + classItem }>
-            <div className={ !description ? "tab-list__item-img static" : "tab-list__item-img" }>
+            <div className={ `tab-list__item-img ${classItem}` }>
                 <img src={ poster } alt={ title } />
                 {description && (
                     <div className='tab-list__item-description'>
@@ -49,22 +50,5 @@ function TabListItem(props) {
                 <Programm prog={ program } />
             </div>
         </div>
-    );
-}
-function Programm(props) {
-    const { prog } = props;
-    return (
-        prog !== undefined && (
-            <div className='program'>
-                <ul className='programm-list'>
-                    {prog.map((element, index) => (
-                        <li className='programm-list__item ' key={ `programm${index.toString()}` }>
-                            <div className='time'>{element.time}</div>
-                            <div className='title'>{element.title}</div>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        )
     );
 }
