@@ -3,7 +3,7 @@ import React from "react";
 import "./tab.scss";
 import Programm from "../programm/programm";
 
-export default class Tab extends React.Component {
+export default class Tab extends React.PureComponent {
     render() {
         const { list, type } = this.props;
         return list.map((element, index) => (

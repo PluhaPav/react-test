@@ -1,8 +1,10 @@
+import * as actionTypes from "../actions/types";
+
 const list = [];
 
 export default function(state = list, action) {
     switch (action.type) {
-        case "STATE_API": {
+        case actionTypes.API_ACTION: {
             const { value = [] } = action.payload;
             return {
                 ...state,

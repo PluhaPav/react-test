@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from "react";
 import "./in-out.scss";
@@ -5,8 +6,7 @@ import PropTypes from "prop-types";
 
 export default class InOut extends React.Component {
     onClickLogin = () => {
-        const { onCkickInOut } = this.props;
-        onCkickInOut(true);
+        this.props.onCkickInOut(true);
     };
 
     render() {
@@ -32,6 +32,6 @@ export default class InOut extends React.Component {
 }
 
 InOut.propTypes = {
-    authorization: PropTypes.bool,
-    onCkickInOut: PropTypes.func
+    authorization: PropTypes.bool.isRequired,
+    onCkickInOut: PropTypes.func.isRequired
 };

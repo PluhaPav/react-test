@@ -4,7 +4,7 @@ import InOut from "../in-out/in-out";
 import Search from "../search/search";
 import "./header.scss";
 
-export default class Header extends React.Component {
+export default class Header extends React.PureComponent {
     render() {
         const { authorization, onCkickInOut } = this.props;
         return (

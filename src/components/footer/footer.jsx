@@ -2,7 +2,7 @@ import React from "react";
 import "./footer.scss";
 import Vector from "../../assets/image/logo/Vector.png";
 
-export default class Footer extends React.Component {
+export default class Footer extends React.PureComponent {
     render() {
         return (
             <div className='footer'>

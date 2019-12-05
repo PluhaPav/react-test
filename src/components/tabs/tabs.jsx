@@ -7,9 +7,9 @@ import Tab from "../tab/tab";
 import { actionCreatorApi } from "../../actions/api-action";
 
 class Tabs extends React.Component {
-    componentWillMount() {
-        const { actionCreatorApi } = this.props;
-        actionCreatorApi();
+    constructor(props) {
+        super(props);
+        props.actionCreatorApi();
     }
 
     componentDidMount() {
@@ -42,11 +42,11 @@ class Tabs extends React.Component {
             indexActive = element.classList.contains("tabs-title__list-item--active") ? index : 0;
             element.style.transform = `translateX(${100 * index}%)`;
         });
-        
-        if(indexActive < indexTab){
+
+        if (indexActive < indexTab) {
             tabs[indexActive].style.transform = `translateX(${-100 * indexTab}%)`;
             tabs[indexTab].style.transform = `translateX(0%)`;
-        }else if(indexActive > indexTab){
+        } else if (indexActive > indexTab) {
             tabs[indexActive].style.transform = `translateX(${100 * indexTab}%)`;
             tabs[indexTab].style.transform = `translateX(0%)`;
         }
@@ -82,7 +82,7 @@ Tabs.propTypes = {
     actionCreatorApi: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({ list: state.api.list });
+const mapStateToProps = ({ api: { list } }) => ({ list });
 const mapDispatchToProps = { actionCreatorApi };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tabs);
