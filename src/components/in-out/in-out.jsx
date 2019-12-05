@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from "react";
 import "./in-out.scss";
 import PropTypes from "prop-types";
@@ -14,7 +15,7 @@ export default class InOut extends React.Component {
             <div className='in-out'>
                 {!authorization && (
                     <div className='in-out__login'>
-                        <div onClick={ this.onClickLogin } onKeyPress={ this.onClickLogin } className='in-out__login-button' role='button' tabIndex='0'>
+                        <div onClick={ this.onClickLogin } onKeyPress={ this.onClickLogin } className='in-out__login-button'>
                             Войти
                         </div>
                     </div>

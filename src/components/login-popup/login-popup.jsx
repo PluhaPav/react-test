@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable react/no-unused-state */
 import React from "react";
 import PropType from "prop-types";
 import { connect } from "react-redux";
@@ -73,9 +71,9 @@ class LoginPopup extends React.Component {
                 <div className='popup__container'>
                     <form method='POST' className='popup__form' onSubmit={ this.handleSubmit }>
                         <div className='popup__form-title'>Вход</div>
-                        <InputEmail onEmailChange={ this.handlerEmail } inputObj={ { error, value } } />
-                        <InputPassword onPasswordChange={ this.handlerPassword } inputObj={ { passError, passValue } } />
-                        <InputCheck onChekedChange={ this.handleCheck } inputObj={ { checkError, checkValue } } />
+                        <InputEmail onEmailChange={ this.handlerEmail } error={ error } value={ value } />
+                        <InputPassword onPasswordChange={ this.handlerPassword } error={ passError } value={ passValue } />
+                        <InputCheck onChekedChange={ this.handleCheck } error={ checkError } value={ checkValue } />
                         <InputSubmit />
                     </form>
                 </div>

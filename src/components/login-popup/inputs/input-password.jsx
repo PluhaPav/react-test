@@ -8,9 +8,7 @@ export default class InputPassword extends React.Component {
     };
 
     render() {
-        const {
-            inputObj: { passValue, passError }
-        } = this.props;
+        const { passValue, passError } = this.props;
         return (
             <div className='popup__form-row'>
                 <input className='popup__form-input' type='password' placeholder='Пароль' value={ passValue } onChange={ this.handleChange } />
@@ -21,9 +19,7 @@ export default class InputPassword extends React.Component {
 }
 
 InputPassword.propTypes = {
-    inputObj: PropsTypes.objectOf({
-        value: PropsTypes.string,
-        error: PropsTypes.bool
-    }),
+    passValue: PropsTypes.string,
+    passError: PropsTypes.bool,
     onPasswordChange: PropsTypes.func
 };

@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import React from "react";
 import "./tabs.scss";
 import { connect } from "react-redux";
@@ -11,6 +10,10 @@ class Tabs extends React.Component {
     componentWillMount() {
         const { actionCreatorApi } = this.props;
         actionCreatorApi();
+    }
+
+    componentDidMount() {
+        this.animateTabs();
     }
 
     handleClickTabs = event => {
@@ -28,6 +31,25 @@ class Tabs extends React.Component {
         if (tab) {
             tab.classList.add("tabs-main__tab--active");
         }
+
+        this.animateTabs(indexTab);
+    };
+
+    animateTabs = (indexTab = 0) => {
+        const tabs = document.querySelectorAll(".tabs-main__tab");
+        let indexActive = 0;
+        tabs.forEach((element, index) => {
+            indexActive = element.classList.contains("tabs-title__list-item--active") ? index : 0;
+            element.style.transform = `translateX(${100 * index}%)`;
+        });
+        
+        if(indexActive < indexTab){
+            tabs[indexActive].style.transform = `translateX(${-100 * indexTab}%)`;
+            tabs[indexTab].style.transform = `translateX(0%)`;
+        }else if(indexActive > indexTab){
+            tabs[indexActive].style.transform = `translateX(${100 * indexTab}%)`;
+            tabs[indexTab].style.transform = `translateX(0%)`;
+        }
     };
 
     render() {
@@ -37,7 +59,7 @@ class Tabs extends React.Component {
                 <div className='tabs-title'>
                     <ul className='tabs-title__list'>
                         {list.map((element, index) => (
-                            <li key={ `title__list-item${index.toString()}` } className={ `tabs-title__list-item ${element.class} ${index === 0 ? "tabs-title__list-item--active" : ""}` } tabIndex={ index } role='menuitem' onClick={ this.handleClickTabs } onKeyPress={ this.handleClickTabs }>
+                            <li key={ `title__list-item${index.toString()}` } className={ `tabs-title__list-item ${element.class} ${index === 0 ? "tabs-title__list-item--active" : ""}` } tabIndex={ index } onClick={ this.handleClickTabs } onKeyPress={ this.handleClickTabs }>
                                 {element.title}
                             </li>
                         ))}

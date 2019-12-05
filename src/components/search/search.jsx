@@ -27,7 +27,7 @@ export default class Search extends React.Component {
         return (
             <div className='search'>
                 <div className='search__block'>
-                    <form className='search__form' method='POST' onSubmit={ this.handleSubmit }>
+                    <form className='search__form' onSubmit={ this.handleSubmit }>
                         <input className='search__form-input' type='search' name='search' id='seatch' placeholder='Поиск...' onChange={ this.handleSearch } />
                         {!canSubmit && <div className='search__form-error'>Короткое поисковое слово</div>}
                         <input className='search__form-submit' type='submit' value='Найти' disabled={ !canSubmit } />

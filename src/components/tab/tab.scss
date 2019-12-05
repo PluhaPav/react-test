@@ -19,6 +19,7 @@
   padding-top: 32px;
   overflow: hidden;
   &-title {
+    min-height: 46px;
     h2 {
       font-weight: 500;
       font-size: 24px;
@@ -58,7 +59,7 @@
       position: relative;
       transform-style: preserve-3d;
       perspective: 1000px;
-      &.static {
+      &--static {
         margin-bottom: 16px;
       }
       &.line {
