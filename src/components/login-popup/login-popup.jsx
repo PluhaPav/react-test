@@ -44,14 +44,12 @@ class LoginPopup extends React.Component {
     };
 
     handleSubmit = event => {
-        const { onClickSubmit } = this.state;
         event.preventDefault();
-        onClickSubmit(this.state);
+        this.stateюonClickSubmit(this.state);
     };
 
     changePopup = (value = false) => {
-        const { actionCreatorPopup } = this.props;
-        actionCreatorPopup(value);
+        this.props.actionCreatorPopup(value);
     };
 
     clickoutPopup = event => {
