@@ -8,7 +8,7 @@ export default class Tab extends React.PureComponent {
         const { list, type } = this.props;
         return list.map((element, index) => (
             <div key={ String("tabList" + index) } className='tab'>
-                <div className='tab-title'>
+                <div className='tab__title'>
                     <h2>{element.title}</h2>
                 </div>
                 <div className={ "tab-list " + type }>
