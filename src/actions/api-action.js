@@ -1,4 +1,4 @@
-import * as actionTypes from "./types";
+import { API_ACTION } from "./types";
 import { API_URL, METHOD_LIST } from "../constants/constants";
 
 export const actionCreatorApi = () => dispatch => {
@@ -17,7 +17,7 @@ export const actionCreatorApi = () => dispatch => {
             let response = await fetch(API_URL + METHOD_LIST);
             let result = await response.json();
             dispatch({
-                type: actionTypes.API_ACTION,
+                type: API_ACTION,
                 payload: { value: result }
             });
         } catch (err) {

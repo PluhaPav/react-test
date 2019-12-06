@@ -1,6 +1,6 @@
-import * as actionTypes from "./types";
+import { POPUP_ACTION } from "./types";
 
 export const actionCreatorPopup = value => ({
-    type: actionTypes.POPUP_ACTION,
+    type: POPUP_ACTION,
     payload: { value }
 });
