@@ -3,28 +3,6 @@ import React from "react";
 import "./programm.scss";
 
 export default class Programm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { timer: 0, intervalId: null };
-    }
-
-    timer = () => {
-        let { timer } = this.state;
-        timer += 1;
-        this.setState({ timer });
-    };
-
-    componentDidMount = () => {
-        let { intervalId } = this.state;
-        intervalId = setInterval(this.timer, 5000);
-        // store intervalId in the state so it can be accessed later:
-        this.setState({ intervalId });
-    };
-
-    componentWillUnmount = () => {
-        clearInterval(this.state.intervalId);
-    };
-
     filterProgramm(prog, count, element, index = 0) {
         let visible = false;
         let countV = 0;
