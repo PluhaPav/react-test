@@ -8,7 +8,7 @@ import InputSubmit from "./inputs/input-submit";
 import { actionCreatorPopup } from "../../actions/popup-action";
 import "./login-popup.scss";
 
-class LoginPopup extends React.Component {
+class LoginPopup extends React.PureComponent {
     constructor(props) {
         super(props);
 

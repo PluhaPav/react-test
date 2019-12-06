@@ -20,3 +20,4 @@ export default class Tab extends React.PureComponent {
         ));
     }
 }
+

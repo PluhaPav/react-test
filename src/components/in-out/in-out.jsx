@@ -2,7 +2,7 @@ import React from "react";
 import "./in-out.scss";
 import PropTypes from "prop-types";
 
-export default class InOut extends React.Component {
+export default class InOut extends React.PureComponent {
     onClickLogin = () => {
         this.props.onCkickInOut(true);
     };

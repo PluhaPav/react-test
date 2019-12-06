@@ -2,30 +2,23 @@
 import React from "react";
 import "./programm.scss";
 
-export default class Programm extends React.Component {
-    filterProgramm(prog, count, element, index = 0) {
-        let visible = false;
-        let countV = 0;
-        if (index < count && count !== 0 && prog) {
-            let { time } = element;
-            let timeNext = prog[index + 1].time;
-            const currentDate = new Date();
-            const currentTime = currentDate.setHours(currentDate.getHours(), currentDate.getMinutes());
-            const splitTime = time.split(":");
-            const splitTimeNext = timeNext.split(":");
-            const selectedTime = currentDate.setHours(Number.parseInt(splitTime[0], 10), Number.parseInt(splitTime[1], 10));
-            const selectedTimenext = currentDate.setHours(Number.parseInt(splitTimeNext[0], 10), Number.parseInt(splitTimeNext[1], 10));
-            visible = currentTime <= selectedTime || currentTime < selectedTimenext;
-            countV += 1;
-        } else {
-            visible = true;
-        }
-        if (countV > 3) {
-            visible = false;
-        }
-        return visible;
+function filterProgrammFunc(prog, count, time, index = 0) {
+    let visible = false;
+    if (index < count && count !== 0 && prog) {
+        let timeNext = prog[index + 1].time;
+        const currentDate = new Date();
+        const currentTime = currentDate.setHours(currentDate.getHours(), currentDate.getMinutes());
+        const splitTime = time.split(":");
+        const splitTimeNext = timeNext.split(":");
+        const selectedTime = currentDate.setHours(+splitTime[0], +splitTime[1]);
+        const selectedTimenext = currentDate.setHours(+splitTimeNext[0], +splitTimeNext[1]);
+        visible = currentTime <= selectedTime || currentTime < selectedTimenext;
+    } else {
+        visible = true;
     }
-
+    return visible;
+}
+export default class Programm extends React.PureComponent {
     render() {
         const { prog } = this.props;
         const count = prog ? prog.length - 1 : 0;
@@ -34,14 +27,15 @@ export default class Programm extends React.Component {
             prog !== undefined && (
                 <div className='programm'>
                     <ul className='programm-list'>
-                        {prog.map((element, index) => {
-                            countVisible += this.filterProgramm(prog, count, element, index) ? 1 : 0;
+                        {prog.map(({ time, title }, index) => {
+                            const filterProgramm = filterProgrammFunc(prog, count, time, index);
+                            countVisible += filterProgramm ? 1 : 0;
                             return (
-                                this.filterProgramm(prog, count, element, index) &&
+                                filterProgramm &&
                                 countVisible <= 3 && (
-                                    <li className={ `programm-list__item ${this.filterProgramm(prog, count, element, index) && countVisible <= 1 ? "active" : ""}` } key={ `programm-${index.toString()}` }>
-                                        <div className='time'>{element.time}</div>
-                                        <div className='title'>{element.title}</div>
+                                    <li className={ `programm-list__item ${filterProgramm && countVisible <= 1 ? "active" : ""}` } key={ `programm-${index.toString()}` }>
+                                        <div className='time'>{time}</div>
+                                        <div className='title'>{title}</div>
                                     </li>
                                 )
                             );

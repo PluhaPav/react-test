@@ -130,6 +130,7 @@
     "core-js": "^2.6.10",
     "css-vars-ponyfill": "^2.1.2",
     "eazy-logger": "^3.0.2",
+    "element-closest": "^3.0.2",
     "lodash": "^4.17.3",
     "prop-types": "^15.6.2",
     "react": "^16.5.1",
