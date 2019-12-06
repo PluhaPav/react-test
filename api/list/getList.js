@@ -18,12 +18,12 @@ module.exports = () => [
                     },
                     {
                         title: "Однажды... в Голливуде",
-                        poster: "http://localhost:9999/assets/picture (1).png",
+                        poster: "http://localhost:9999/assets/picture_1.png",
                         description: "Фильм повествует о череде событий, произошедших в Голливуде в 1969 году, на закате его «золотого века». Известный актер Рик Далтон и его дублер Клифф Бут пытаются найти свое место в стремительно меняющемся мире киноиндустрии."
                     },
                     {
                         title: "Стриптизёрши",
-                        poster: "http://localhost:9999/assets/picture (2).png",
+                        poster: "http://localhost:9999/assets/picture_2.png",
                         description: "Фильм повествует о череде событий, произошедших в Голливуде в 1969 году, на закате его «золотого века». Известный актер Рик Далтон и его дублер Клифф Бут пытаются найти свое место в стремительно меняющемся мире киноиндустрии."
                     }
                 ]
@@ -60,7 +60,7 @@ module.exports = () => [
                 list: [
                     {
                         title: "Первый канал",
-                        poster: "http://localhost:9999/assets/Vector (3).png",
+                        poster: "http://localhost:9999/assets/Vector_3.png",
                         program: [
                             {
                                 time: "05:00",
@@ -344,7 +344,7 @@ module.exports = () => [
                     },
                     {
                         title: "РБК",
-                        poster: "http://localhost:9999/assets/Fill 2 1.png",
+                        poster: "http://localhost:9999/assets/Fill_2_1.png",
                         program: [
                             {
                                 time: "05:00",
@@ -438,7 +438,7 @@ module.exports = () => [
                     },
                     {
                         title: "AMEDIA PREMIUM",
-                        poster: "http://localhost:9999/assets/Vector (4).png",
+                        poster: "http://localhost:9999/assets/Vector_4.png",
                         program: [
                             {
                                 time: "05:00",

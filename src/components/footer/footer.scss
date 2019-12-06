@@ -1,6 +1,6 @@
 @import "../../constants/enum.scss";
 .footer {
-  background: $backgroundFooter;
+  background: var(--backgroundFooter);
   display: flex;
   justify-content: center;
   padding: 28px 0px;
@@ -21,15 +21,15 @@
     }
     &-link {
       font-weight: 700;
-      color: $footerLinkColor;
+      color: var(--footerLinkColor);
     }
     &-line {
       font-size: 16px;
       line-height: 19px;
-      color: $footerLineColor;
+      color: var(--footerLineColor);
       padding-bottom: 6px;
       a {
-        color: $footerLineColor;
+        color: var(--footerLineColor);
         text-decoration: none;
       }
     }

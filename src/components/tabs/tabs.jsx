@@ -20,14 +20,14 @@ class Tabs extends React.Component {
         const indexTab = event.target.tabIndex;
         let tab = null;
         const tabs = document.querySelectorAll(".tabs-main__tab");
-        const tabTitle = document.querySelectorAll(".tabs-title__list-item");
+        const tabTitle = document.querySelectorAll(".tabs__list-item");
 
         tabs.forEach((element, index) => {
-            tabTitle[index].classList.remove("tabs-title__list-item--active");
+            tabTitle[index].classList.remove("tabs__list-item--active");
             element.classList.remove("tabs-main__tab--active");
             parseInt(element.attributes.tabIndex.value, 10) === indexTab ? (tab = element) : null;
         });
-        tabTitle[indexTab].classList.add("tabs-title__list-item--active");
+        tabTitle[indexTab].classList.add("tabs__list-item--active");
         if (tab) {
             tab.classList.add("tabs-main__tab--active");
         }
@@ -39,7 +39,7 @@ class Tabs extends React.Component {
         const tabs = document.querySelectorAll(".tabs-main__tab");
         let indexActive = 0;
         tabs.forEach((element, index) => {
-            indexActive = element.classList.contains("tabs-title__list-item--active") ? index : 0;
+            indexActive = element.classList.contains("tabs__list-item--active") ? index : 0;
             element.style.transform = `translateX(${100 * index}%)`;
         });
 
@@ -56,10 +56,10 @@ class Tabs extends React.Component {
         const { list = [] } = this.props;
         return (
             <div className='tabs'>
-                <div className='tabs-title'>
-                    <ul className='tabs-title__list'>
+                <div className='title'>
+                    <ul className='tabs__list'>
                         {list.map((element, index) => (
-                            <li key={ `title__list-item${index.toString()}` } className={ `tabs-title__list-item ${element.class} ${index === 0 ? "tabs-title__list-item--active" : ""}` } tabIndex={ index } onClick={ this.handleClickTabs } onKeyPress={ this.handleClickTabs }>
+                            <li key={ `title__list-item${index.toString()}` } className={ `tabs__list-item ${element.class} ${index === 0 ? "tabs__list-item--active" : ""}` } tabIndex={ index } onClick={ this.handleClickTabs } onKeyPress={ this.handleClickTabs }>
                                 {element.title}
                             </li>
                         ))}

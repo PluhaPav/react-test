@@ -1,15 +1,14 @@
-/* eslint-disable import/no-named-default */
 import { combineReducers } from "redux";
-import { default as appReducer } from "./app";
-import { default as popupReducer } from "./popup";
-import { default as authorizationReducer } from "./authorization";
-import { default as apiReducer } from "./api";
+import app from "./app";
+import popup from "./popup";
+import authorization from "./authorization";
+import api from "./api";
 
 const reducers = {
-    app: appReducer,
-    popup: popupReducer,
-    authorization: authorizationReducer,
-    api: apiReducer
+    app,
+    popup,
+    authorization,
+    api
 };
 
 export default combineReducers(reducers);

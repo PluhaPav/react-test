@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import PageMain from "../../page/page-main/page-main";
 import PageError from "../../page/page-error/page-error";
 import { MAIN_PAGE_ROUTE } from "../../constants/routes";
+import Header from "../header/header";
 import Footer from "../footer/footer";
 import LoginPopup from "../login-popup/login-popup";
 
@@ -33,8 +34,9 @@ class App extends React.Component {
         const { popup, authorization } = this.props;
         return (
             <div className='app'>
+                <Header authorization={ authorization } onCkickInOut={ this.handleInOut } />
                 <Switch>
-                    <Route exact={ true } path={ MAIN_PAGE_ROUTE } render={ () => <PageMain onCkickInOut={ this.handleInOut } authorization={ authorization } /> } />
+                    <Route exact={ true } path={ MAIN_PAGE_ROUTE } component={ PageMain } />
                     <Route path='*' component={ PageError } />
                 </Switch>
 

@@ -1,16 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 /* eslint-disable-next-line import/no-extraneous-dependencies */
-import { AppContainer } from 'react-hot-loader'
+import { AppContainer } from "react-hot-loader";
+import cssVars from "css-vars-ponyfill";
 
-import App from './components/app/app';
-import { configureStore } from './store/store';
+import App from "./components/app/app";
+import { configureStore } from "./store/store";
 
 const store = configureStore();
-const mountNode = document.getElementById('react-app');
-
+const mountNode = document.getElementById("react-app");
+cssVars();
 const Application = () => (
     <Provider store={ store }>
         <BrowserRouter basename='/'>
@@ -26,10 +27,12 @@ const renderApplication = Component => {
         </AppContainer>,
         mountNode
     );
-}
+};
 
 renderApplication(Application);
 
 if (module.hot) {
-    module.hot.accept('./components/app/app', () => { renderApplication(Application) });
+    module.hot.accept("./components/app/app", () => {
+        renderApplication(Application);
+    });
 }

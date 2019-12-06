@@ -1,47 +1,45 @@
 @import "../../constants/enum.scss";
 .tabs {
-  &-title {
-    &__list {
-      display: flex;
+  &__list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    &-item {
+      padding: 0 24px;
+      min-width: 160px;
+      text-align: center;
+      display: inline-flex;
       justify-content: center;
-      list-style: none;
-      &-item {
-        padding: 0 24px;
-        min-width: 160px;
-        text-align: center;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        white-space: nowrap;
-        position: relative;
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 28px;
-        margin: 16px 0;
-        height: 28px;
-        cursor: pointer;
+      align-items: center;
+      white-space: nowrap;
+      position: relative;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28px;
+      margin: 16px 0;
+      height: 28px;
+      cursor: pointer;
+      &::before {
+        content: "";
+        height: 2px;
+        position: absolute;
+        bottom: -16px;
+        left: 0;
+        width: 0%;
+        background: var(--tabColorActiveLine);
+        transition: 0.5s ease-in-out;
+      }
+      &--active {
+        color: var(--tabColorActiveLine);
         &::before {
-          content: "";
-          height: 2px;
-          position: absolute;
-          bottom: -16px;
-          left: 0;
-          width: 0%;
-          background: $tabColorActiveLine;
+          width: 100%;
           transition: 0.5s ease-in-out;
         }
-        &--active {
-          color: $tabColorActiveLine;
-          &::before {
-            width: 100%;
-            transition: 0.5s ease-in-out;
-          }
-        }
-        &:hover {
-          &::before {
-            width: 100%;
-            transition: 0.5s ease-in-out;
-          }
+      }
+      &:hover {
+        &::before {
+          width: 100%;
+          transition: 0.5s ease-in-out;
         }
       }
     }

@@ -12,13 +12,14 @@
     &-button {
       @include font;
       text-align: center;
-      color: $textColor;
-      background: $headerLogoBefore;
+      color: var(--textColor);
+      background: var(--headerLogoBefore);
       border-radius: 4px;
       padding: 9px 32px;
+      border: none;
       cursor: pointer;
       &:hover {
-        background: $headerHover;
+        background: var(--headerHover);
       }
     }
   }
@@ -29,18 +30,18 @@
     &-button {
       @include font;
       text-align: center;
-      color: $headerLogoBefore;
+      color: var(--headerLogoBefore);
       margin: 9px 0px 9px 32px;
       cursor: pointer;
       &:hover {
-        color: $headerHover;
+        color: var(--headerHover);
       }
     }
   }
 
   &__user-name {
     @include font;
-    color: $textColorUserName;
+    color: var(--textColorUserName);
     width: calc(100% - 82px);
     white-space: nowrap;
     overflow: hidden;

@@ -6,7 +6,7 @@
   right: 0;
   bottom: 0;
   z-index: 1;
-  background: $popupBackground;
+  background: var(--popupBackground);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +27,7 @@
       font-size: 28px;
       line-height: 33px;
       text-align: center;
-      color: $popupBorder;
+      color: var(--popupBorder);
       margin-bottom: 24px;
     }
     &-row {
@@ -37,28 +37,28 @@
       border-top: 0px;
       border-left: 0px;
       border-right: 0px;
-      border-bottom: 1px solid $popupBorder;
+      border-bottom: 1px solid var(--popupBorder);
       padding: 6px;
       width: 100%;
       &::-webkit-input-placeholder {
         font-size: 16px;
         line-height: 19px;
-        color: $popupInputPplaceholder;
+        color: var(--popupInputPplaceholder);
       }
       &:-ms-input-placeholder {
         font-size: 16px;
         line-height: 19px;
-        color: $popupInputPplaceholder;
+        color: var(--popupInputPplaceholder);
       }
       &::-ms-input-placeholder {
         font-size: 16px;
         line-height: 19px;
-        color: $popupInputPplaceholder;
+        color: var(--popupInputPplaceholder);
       }
       &::placeholder {
         font-size: 16px;
         line-height: 19px;
-        color: $popupInputPplaceholder;
+        color: var(--popupInputPplaceholder);
       }
       &:focus {
         outline: none;
@@ -94,8 +94,8 @@
             width: 10px;
             height: 5px;
             border-radius: 4px;
-            border-left: 2px solid $popupchecked;
-            border-bottom: 2px solid $popupchecked;
+            border-left: 2px solid var(--popupchecked);
+            border-bottom: 2px solid var(--popupchecked);
             -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
           }
@@ -106,7 +106,7 @@
             top: 0px;
             width: 16px;
             height: 16px;
-            border: 1px solid $popupBorder;
+            border: 1px solid var(--popupBorder);
             background-color: #ffffff;
             border-radius: 4px;
           }
@@ -128,7 +128,7 @@
             top: 0px;
             width: 16px;
             height: 16px;
-            border: 1px solid $popupBorder;
+            border: 1px solid var(--popupBorder);
             background-color: #ffffff;
             border-radius: 4px;
           }
@@ -136,7 +136,7 @@
       }
     }
     &-submit {
-      background: $popupchecked;
+      background: var(--popupchecked);
       border-radius: 4px;
       border: none;
       padding: 9px 32px;

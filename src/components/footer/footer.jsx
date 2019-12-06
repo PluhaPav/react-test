@@ -5,8 +5,7 @@ import Vector from "../../assets/image/logo/Vector.png";
 export default class Footer extends React.PureComponent {
     render() {
         return (
-            <div className='footer'>
-                
+            <footer className='footer'>
                 <div className='footer__container container'>
                     <div className='footer__container-logo'>
                         <img className='footer__container-img' src={ Vector } alt='' />
@@ -23,7 +22,7 @@ export default class Footer extends React.PureComponent {
                         </span>
                     </div>
                 </div>
-            </div>
+            </footer>
         );
     }
 }
