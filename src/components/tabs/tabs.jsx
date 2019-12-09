@@ -34,7 +34,7 @@ class Tabs extends React.Component {
             tab.classList.add("tabs-main__tab--active");
         }
         this.animateTabs(indexTab);
-        this.animateTabItem();
+        this.animateTabItem(indexTab);
     };
 
     animateTabs = (indexTab = 0) => {
@@ -57,33 +57,36 @@ class Tabs extends React.Component {
     removeAnimate() {
         const item = document.querySelectorAll(".tab-list__item");
         item.forEach(element => {
-            element.classList.remove("animate");
+            element.classList.remove("animate-left");
+            element.classList.remove("animate-right");
         });
     }
 
-    animateTabItem() {
+    animateTabItem(indexTab) {
         const tab = document.querySelector(".tabs-main__tab--active").querySelectorAll(".tab");
         if (tab.length > 1) {
             let delayTab = 0;
             tab.forEach(elementTab => {
                 const item = elementTab.querySelectorAll(".tab-list__item");
-                this.animateItem(item, delayTab);
+                this.animateItem(item, 0, delayTab);
                 delayTab += 1;
             });
         } else {
             const item = document.querySelector(".tabs-main__tab--active").querySelectorAll(".tab-list__item");
-            this.animateItem(item);
+            this.animateItem(item, indexTab);
         }
     }
 
-    animateItem(item, delayTab = 0) {
+    animateItem(item, indexTab = 0, delayTab = 0) {
+        const classAnimate = indexTab > 0 ? "left" : "right";
         item.forEach(element => {
             const delay = +element.getAttribute("data-animation");
-            if (!element.classList.contains("animate")) {
-                element.classList.add("animate");
+            if (!element.classList.contains(`animate-${classAnimate}`)) {
+                element.classList.add(`animate-${classAnimate}`);
             }
-            element.style.animationDelay = `${delay}s`;
-            element.style.animationDuration = `${1 + delayTab}s`;
+            element.style.animationDelay = `${indexTab > 0 ? delay + delayTab : delayTab + 1 - delay}s`;
+            element.style.animationDuration = `${1}s`;
+            element.style.animationTimingFunction = "ease-in-out";
         });
     }
 

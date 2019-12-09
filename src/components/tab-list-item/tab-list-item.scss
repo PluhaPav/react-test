@@ -48,7 +48,7 @@
       cursor: pointer;
       position: relative;
       transform-style: preserve-3d;
-      perspective: 1000px; 
+      perspective: 1000px;
       &--static {
         margin-bottom: 16px;
       }
@@ -209,17 +209,26 @@
   }
 }
 
-.animate {
-  animation: transform;
+.animate-right {
+  animation: transform-right;
+}
+.animate-left {
+  animation: transform-left;
 }
 
-@keyframes transform {
+@keyframes transform-right {
   from {
-    transform: translateX(100%);
-    animation-timing-function: ease-in-out;
+    transform: translateX(-100%);
   }
   to {
     transform: translateX(0%);
-    animation-timing-function: ease-in-out;
+  }
+}
+@keyframes transform-left {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
   }
 }
