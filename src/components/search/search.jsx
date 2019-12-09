@@ -10,14 +10,14 @@ export default class Search extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
         let { canSubmit, valueSearch } = this.state;
-        valueSearch.length > 0 ? (canSubmit = true) : (canSubmit = false);
+        canSubmit = valueSearch.length > 0;
         this.setState({ canSubmit, valueSearch });
     };
 
     handleSearch = event => {
         let { canSubmit, valueSearch } = this.state;
         const { value } = event.target;
-        value.length > 3 ? (canSubmit = true) : (canSubmit = false);
+        canSubmit = value.length > 3;
         valueSearch = value;
         this.setState({ canSubmit, valueSearch });
     };

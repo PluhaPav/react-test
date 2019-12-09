@@ -14,16 +14,15 @@ import { actionCreatorAuthorization } from "../../actions/authorization-action";
 import "./app.scss";
 
 class App extends React.Component {
-    handleInOut = event => {
-        const { actionCreatorPopup } = this.props;
-        actionCreatorPopup(event);
+    handleInOut = visible => {
+        this.props.actionCreatorPopup(visible);
     };
 
-    handleLogin = event => {
+    handleLogin = dataLogin => {
         const {
             inputEmail: { value: eMalue },
             inputPassword: { value: pValue }
-        } = event;
+        } = dataLogin;
         const { actionCreatorPopup, actionCreatorAuthorization } = this.props;
         let truthСheck = eMalue === "test@mail.ru" && pValue === "1234";
         actionCreatorPopup(!truthСheck);
@@ -54,7 +53,7 @@ App.propTypes = {
     actionCreatorAuthorization: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({ popup: state.popup.popup, authorization: state.authorization.authorization });
+const mapStateToProps = ({ popup: { popup }, authorization: { authorization } }) => ({ popup, authorization });
 const mapDispatchToProps = { actionCreatorPopup, actionCreatorAuthorization };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

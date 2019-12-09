@@ -13,7 +13,8 @@ class Tabs extends React.Component {
     }
 
     componentDidMount() {
-        this.animateTabs();
+        // this.animateTabs();
+        // this.animateTabItem();
     }
 
     handleClickTabs = event => {
@@ -27,12 +28,13 @@ class Tabs extends React.Component {
             element.classList.remove("tabs-main__tab--active");
             parseInt(element.attributes.tabIndex.value, 10) === indexTab ? (tab = element) : null;
         });
+        this.removeAnimate();
         tabTitle[indexTab].classList.add("tabs__list-item--active");
         if (tab) {
             tab.classList.add("tabs-main__tab--active");
         }
-
         this.animateTabs(indexTab);
+        this.animateTabItem();
     };
 
     animateTabs = (indexTab = 0) => {
@@ -51,6 +53,39 @@ class Tabs extends React.Component {
             tabs[indexTab].style.transform = `translateX(0%)`;
         }
     };
+
+    removeAnimate() {
+        const item = document.querySelectorAll(".tab-list__item");
+        item.forEach(element => {
+            element.classList.remove("animate");
+        });
+    }
+
+    animateTabItem() {
+        const tab = document.querySelector(".tabs-main__tab--active").querySelectorAll(".tab");
+        if (tab.length > 1) {
+            let delayTab = 0;
+            tab.forEach(elementTab => {
+                const item = elementTab.querySelectorAll(".tab-list__item");
+                this.animateItem(item, delayTab);
+                delayTab += 1;
+            });
+        } else {
+            const item = document.querySelector(".tabs-main__tab--active").querySelectorAll(".tab-list__item");
+            this.animateItem(item);
+        }
+    }
+
+    animateItem(item, delayTab = 0) {
+        item.forEach(element => {
+            const delay = +element.getAttribute("data-animation");
+            if (!element.classList.contains("animate")) {
+                element.classList.add("animate");
+            }
+            element.style.animationDelay = `${delay}s`;
+            element.style.animationDuration = `${1 + delayTab}s`;
+        });
+    }
 
     render() {
         const { list = [] } = this.props;

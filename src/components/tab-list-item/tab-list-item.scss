@@ -23,6 +23,7 @@
     max-height: 680px;
     &.tv {
       overflow-y: auto;
+      overflow-x: hidden;
       padding-right: 8px;
 
       @media (max-width: 768px) {
@@ -47,7 +48,7 @@
       cursor: pointer;
       position: relative;
       transform-style: preserve-3d;
-      perspective: 1000px;
+      perspective: 1000px; 
       &--static {
         margin-bottom: 16px;
       }
@@ -205,5 +206,20 @@
         }
       }
     }
+  }
+}
+
+.animate {
+  animation: transform;
+}
+
+@keyframes transform {
+  from {
+    transform: translateX(100%);
+    animation-timing-function: ease-in-out;
+  }
+  to {
+    transform: translateX(0%);
+    animation-timing-function: ease-in-out;
   }
 }

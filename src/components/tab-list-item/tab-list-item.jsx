@@ -6,13 +6,14 @@ import "./tab-list-item.scss";
 export default class TabListItem extends React.PureComponent {
     render() {
         const {
-            item: { description, program, poster, title }
+            item: { description, program, poster, title },
+            animation
         } = this.props;
         let classItem = !description ? " static" : "";
         classItem += program ? " line" : "";
 
         return (
-            <div className={ "tab-list__item" + classItem }>
+            <div className={ "tab-list__item" + classItem } data-animation={ animation }>
                 <div className={ `tab-list__item-img ${classItem}` }>
                     <img src={ poster } alt={ title } />
                     {description && (

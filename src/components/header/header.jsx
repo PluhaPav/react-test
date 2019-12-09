@@ -29,7 +29,7 @@ Header.propTypes = {
     onCkickInOut: PropTypes.func
 };
 
-const mapStateToProps = state => ({ authorization: state.authorization.authorization });
+const mapStateToProps = ({ authorization: { authorization } }) => ({ authorization });
 const mapDispatchToProps = { actionCreatorAuthorization };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

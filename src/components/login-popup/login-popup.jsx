@@ -29,23 +29,23 @@ class LoginPopup extends React.PureComponent {
         };
     }
 
-    handlerEmail = event => {
-        const email = String(event);
+    handlerEmail = dataEmail => {
+        const email = String(dataEmail);
         this.setState({ inputEmail: { error: !(email.indexOf("@") > 0), value: email } });
     };
 
-    handlerPassword = event => {
-        const passsword = String(event);
+    handlerPassword = dataPassword => {
+        const passsword = String(dataPassword);
         this.setState({ inputPassword: { error: !(passsword.length > 3), value: passsword } });
     };
 
-    handleCheck = event => {
-        this.setState({ inputCheck: { error: false, value: event } });
+    handleCheck = dataCheck => {
+        this.setState({ inputCheck: { error: false, value: dataCheck } });
     };
 
     handleSubmit = event => {
         event.preventDefault();
-        this.stateюonClickSubmit(this.state);
+        this.state.onClickSubmit(this.state);
     };
 
     changePopup = (value = false) => {
@@ -84,7 +84,7 @@ LoginPopup.propTypes = {
     actionCreatorPopup: PropType.func.isRequired
 };
 
-const mapStateToProps = state => ({ popup: state.popup.popup });
+const mapStateToProps = ({ popup: { popup } }) => ({ popup });
 const mapDispatchToProps = { actionCreatorPopup };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPopup);
