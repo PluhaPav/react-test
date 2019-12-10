@@ -209,11 +209,17 @@
   }
 }
 
-.animate-right {
+.tab-list__item--animate-right {
   animation: transform-right;
+  animation-delay: var(--delay);
+  animation-duration: var(--duration);
+  animation-timing-function: ease-in-out;
 }
-.animate-left {
+.tab-list__item--animate-left {
   animation: transform-left;
+  animation-delay: var(--delay);
+  animation-duration: var(--duration);
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes transform-right {

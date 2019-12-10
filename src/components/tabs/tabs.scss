@@ -51,14 +51,16 @@
     &__tab {
       position: absolute;
       top: 0;
-      transition: 1.5s;
+      transition: 1.7s;
       width: 100%;
       opacity: 0;
       visibility: hidden;
+      transform: translateX(var(--translate, 0%));
       &--active {
         position: relative;
         opacity: 1;
         visibility: visible;
+        transform: translateX(0%);
       }
     }
   }
