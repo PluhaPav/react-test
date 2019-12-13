@@ -15,8 +15,9 @@
   // height: auto;
   background: var(--tabFronBack);
 }
+
 .tab {
-  &-list {
+  &__list {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -66,7 +67,7 @@
       &.scroll {
         overflow-y: auto;
       }
-      &-img {
+      &__img {
         position: relative;
         &:not(.static) {
           img {
@@ -102,7 +103,7 @@
           opacity: 1;
         }
       }
-      &-title {
+      &__title {
         font-size: 20px;
         line-height: 24px;
         padding: 16px 0px;
@@ -134,7 +135,7 @@
           }
         }
       }
-      &-description {
+      &__description {
         top: 0px;
         left: 0px;
         right: 0px;

@@ -14,6 +14,8 @@ class Tabs extends React.Component {
         };
     }
 
+    componentDidMount() {}
+
     handleClickTabs = event => {
         const indexTab = +event.target.getAttribute("data-index");
         const tabTitle = document.querySelectorAll(".tabs__list-item");
@@ -54,18 +56,8 @@ class Tabs extends React.Component {
                     {list.map((element, index) => {
                         let diraction = index === 0 ? -1 : 1;
                         return (
-                            <div 
-                                key={ `main__tab${index.toString()}` } 
-                                data-index={ index } 
-                                className={ `tabs-main__tab ${element.class} ${index === indexActive ? "tabs-main__tab--active" : ""}` } 
-                                style={ { "--translate": `${100 * diraction}%` } }
-                            >
-                                <Tab 
-                                    list={ element[element.class] } 
-                                    type={ element.class } 
-                                    indexActiveElement={ indexActive } 
-                                    indexTab={ index } 
-                                />
+                            <div key={ `main__tab${index.toString()}` } data-index={ index } className={ `tabs-main__tab ${element.class} ${index === indexActive ? "tabs-main__tab--active" : ""}` } style={ { "--translate": `${100 * diraction}%` } }>
+                                <Tab list={ element[element.class] } type={ element.class } indexActiveElement={ indexActive } indexTab={ index } />
                             </div>
                         );
                     })}
