@@ -132,7 +132,7 @@
     "eazy-logger": "^3.0.2",
     "element-closest": "^3.0.2",
     "imagemin-pngquant": "^5.0.1",
-    "lodash": "^4.17.3",
+    "lodash": "^4.17.21",
     "pngquant-bin": "^3.1.1",
     "prop-types": "^15.6.2",
     "react": "^16.5.1",
